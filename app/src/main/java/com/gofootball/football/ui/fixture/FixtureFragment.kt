@@ -55,15 +55,7 @@ class FixtureFragment :  Fragment() {
             viewModel.getAllFixtureOfLeague(leagueId!!)
             viewModel.getAllMatchFixture()
 
-            viewModel.fixtureList.observe(viewLifecycleOwner, Observer {
-                it?.let {
-                    rvFixture.layoutManager = LinearLayoutManager(context)
-                    rvFixture.adapter = FixtureAdapter(it){
-                        val bundle = bundleOf(Constant.FIXTURE_TEAM_IDS to it)
-                        view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_fixtureFragment_to_fixtureDetailFragment, bundle) }
-                    }
-                }
-            })
+
 
             viewModel.matchesList.observe(viewLifecycleOwner, Observer {
                 it?.let {

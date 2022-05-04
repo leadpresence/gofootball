@@ -18,16 +18,13 @@ class FixtureViewModel (private val activity: Activity, application: Application
     private val apiClient = ApiClient()
     private val disposable = CompositeDisposable()
 
-    val fixtureList = MutableLiveData<List<Fixture>>()
 
     var matchesList = MutableLiveData<List<Match>>()
-
     val loadingFixture = MutableLiveData<Boolean>()
 
     init {
         getAllMatchFixture()
     }
-
 
 
     fun getAllMatchFixture() {

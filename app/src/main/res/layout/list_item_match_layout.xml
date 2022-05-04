@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="match"
+            type="com.gofootball.football.model.Match" />
+
+        <variable
+            name="clickListener"
+            type="com.gofootball.football.ui.fixture.MatchAdapter.MatchClickListener" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:onClick="@{()-> clickListener.onClick(match)}"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <ImageView
+                android:id="@+id/imgMatchCompetition"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/competition_image"
+                app:imgFromUrl="@{match.competition.area.ensignUrl}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvmatchLeague"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:text="@{match.competition.name}"
+                android:textSize="8sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvmatchCountryName"
+                app:layout_constraintStart_toEndOf="@+id/tvmatchCountryName"
+                app:layout_constraintTop_toTopOf="@+id/tvmatchCountryName" />
+
+            <TextView
+                android:id="@+id/tvmatchCountryName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:text="@{match.competition.area.ensignUrl}"
+                android:textSize="8sp"
+                app:layout_constraintStart_toEndOf="@+id/imgMatchCompetition"
+                app:layout_constraintTop_toTopOf="@+id/imgMatchCompetition" />
+
+            <TextView
+                android:id="@+id/tvmatchWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{String.format("MD: %d",match.matchday)}'
+                android:textSize="8sp"
+                app:layout_constraintStart_toStartOf="@+id/tvmatchCountryName"
+                app:layout_constraintTop_toBottomOf="@+id/tvmatchCountryName" />
+
+            <TextView
+                android:id="@+id/tvmatchDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="10sp"
+                app:convertDate="@{match.utcDate}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.505"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvmatchReferee"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <ImageView
+                android:id="@+id/imgmatchAwayTeam"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                app:imgFromUrl="@{match.awayTeam.name}"
+                app:layout_constraintBottom_toBottomOf="@+id/tvmatchAwayScore"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.513"
+                app:layout_constraintStart_toEndOf="@+id/tvmatchAwayScore"
+                app:layout_constraintTop_toTopOf="@+id/tvmatchAwayScore"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/imgmatchHomeTeam"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                app:imgFromUrl="@{match.homeTeam.name}"
+                app:layout_constraintBottom_toBottomOf="@+id/tvmatchHomeScore"
+                app:layout_constraintEnd_toStartOf="@+id/tvmatchHomeScore"
+                app:layout_constraintHorizontal_bias="0.506"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvmatchHomeScore"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="100dp"
+                android:text="-"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tvmatchVenue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgMatchCompetition"
+                app:layout_constraintVertical_bias="0.8" />
+
+            <TextView
+                android:id="@+id/tvmatchAwayScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text='@{match.score.fullTime.awayTeam.toString() ?? "0"}'
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintTop_toTopOf="@+id/textView4"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tvmatchHomeScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text='@{match.score.fullTime.homeTeam.toString() ?? "0"}'
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                app:layout_constraintEnd_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/tvmatchVenue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{match.competition.area.name}"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvmatchHomeTeamName" />
+
+            <TextView
+                android:id="@+id/tvmatchStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="4dp"
+                android:text="@{match.status}"
+                android:textSize="8sp"
+                app:layout_constraintTop_toBottomOf="@+id/tvmatchVenue"
+                app:layout_constraintStart_toStartOf="@+id/tvmatchVenue"
+                app:layout_constraintEnd_toEndOf="@+id/tvmatchVenue"
+                 />
+
+            <TextView
+                android:id="@+id/tvmatchReferee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvmatchVenue" />
+
+            <TextView
+                android:id="@+id/tvmatchHomeTeamName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{match.homeTeam.name}"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/imgmatchHomeTeam"
+                app:layout_constraintStart_toStartOf="@+id/imgmatchHomeTeam"
+                app:layout_constraintTop_toBottomOf="@+id/imgmatchHomeTeam" />
+
+            <TextView
+                android:id="@+id/tvmatchAwayTeamName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{match.awayTeam.name}"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/imgmatchAwayTeam"
+                app:layout_constraintStart_toStartOf="@+id/imgmatchAwayTeam"
+                app:layout_constraintTop_toBottomOf="@+id/imgmatchAwayTeam" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

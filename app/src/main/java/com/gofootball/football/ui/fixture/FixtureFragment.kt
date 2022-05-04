@@ -16,10 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.gofootball.football.R
 import com.gofootball.football.databinding.FragmentFixtureBinding
 import com.gofootball.football.ui.MainViewModelFactory
-import com.gofootball.football.util.Constant
 import com.gofootball.football.util.CustomSharedPreferences
 import kotlinx.android.synthetic.main.fragment_fixture.*
-import kotlinx.android.synthetic.main.fragment_team.*
 
 
 class FixtureFragment :  Fragment() {

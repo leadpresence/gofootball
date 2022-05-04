@@ -26,10 +26,8 @@ class FixtureFragment :  Fragment() {
     private lateinit var navController: NavController
 
 
-        override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
-        ): View {
+        override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?,
+                               savedInstanceState: Bundle?):View {
             // Inflate the layout for this fragment
             binding = DataBindingUtil.inflate(
                 layoutInflater,
@@ -51,8 +49,6 @@ class FixtureFragment :  Fragment() {
             val leagueId = customPreferences.getCountryId()
 
             viewModel.getAllMatchFixture()
-
-
 
             viewModel.matchesList.observe(viewLifecycleOwner, Observer {
                 it?.let {

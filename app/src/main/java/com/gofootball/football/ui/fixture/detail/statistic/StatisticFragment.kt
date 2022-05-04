@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import com.gofootball.football.R
 import com.gofootball.football.base.BaseFragment
 import com.gofootball.football.databinding.FragmentStatisticBinding
-import com.gofootball.football.model.fixture.Fixture
 import com.gofootball.football.util.Constant
 import kotlinx.android.synthetic.main.fragment_fixture.*
 import kotlinx.android.synthetic.main.fragment_statistic.*

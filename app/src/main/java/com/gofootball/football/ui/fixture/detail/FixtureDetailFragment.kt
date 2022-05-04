@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.gofootball.football.R
-import com.gofootball.football.model.fixture.Fixture
 import com.gofootball.football.ui.fixture.detail.h2h.H2HFragment
 import com.gofootball.football.ui.fixture.detail.statistic.StatisticFragment
 import com.gofootball.football.util.Constant

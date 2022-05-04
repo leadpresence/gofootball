@@ -8,8 +8,6 @@ import androidx.lifecycle.ViewModel
 import com.gofootball.football.data.remote.ApiClient
 import com.gofootball.football.model.Match
 import com.gofootball.football.model.MatchApiResponse
-import com.gofootball.football.model.fixture.Fixture
-import com.gofootball.football.model.fixture.FixtureResponse
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver

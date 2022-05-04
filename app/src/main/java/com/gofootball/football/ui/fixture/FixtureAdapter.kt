@@ -6,7 +6,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.gofootball.football.R
 import com.gofootball.football.databinding.ItemFixtureBinding
-import com.gofootball.football.model.fixture.Fixture
 
 class FixtureAdapter(val fixtureList:List<Fixture>, val onItemClick:(Fixture)->Unit):RecyclerView.Adapter<FixtureAdapter.FixtureViewHolder>() {
     class FixtureViewHolder(var view:ItemFixtureBinding):RecyclerView.ViewHolder(view.root) {

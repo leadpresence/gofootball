@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.gofootball.football.R
 import com.gofootball.football.base.BaseVMFragment
-import com.gofootball.football.model.fixture.Fixture
 import com.gofootball.football.util.Constant
 import kotlinx.android.synthetic.main.fragment_h2_h.*
 

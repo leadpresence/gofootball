@@ -22,48 +22,6 @@ import com.gofootball.football.util.CustomSharedPreferences
 import kotlinx.android.synthetic.main.fragment_fixture.*
 
 
-//class FixtureFragment :  Fragment() {
-//    private lateinit var binding: FragmentFixtureBinding
-//    private lateinit var fixtureViewModel: FixtureViewModel
-//    private lateinit var navController: NavController
-//
-//
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        // Inflate the layout for this fragment
-//        binding =
-//            DataBindingUtil.inflate(layoutInflater, R.layout.fragment_fixture, container, false)
-//        val viewModelFactory =
-//            MainViewModelFactory(requireActivity(), requireActivity().application)
-//
-//        fixtureViewModel =
-//            ViewModelProvider(requireActivity(), viewModelFactory).get(FixtureViewModel::class.java)
-//
-//        var customPreferences = CustomSharedPreferences(activity?.applicationContext!!)
-//        val leagueId = customPreferences.getCountryId()
-//
-//        fixtureViewModel.getAllMatchFixture()
-//
-//
-//
-////            binding.viewModel = viewModel
-//        binding.lifecycleOwner = requireActivity()
-//
-//        fixtureViewModel.loadingFixture.value=true
-//        fixtureViewModel.matchesList.observe(requireActivity(),{})
-//        return binding.root
-//
-//
-//    }
-//
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//    }
-//
-//}
 
 
 class FixtureFragment : BaseVMFragment<FixtureViewModel>() {

@@ -6,7 +6,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.gofootball.football.R
 import com.gofootball.football.databinding.ItemH2hBinding
-import com.gofootball.football.model.h2h.Fixture
 
 class H2hAdapter(val h2hList: List<Fixture>): RecyclerView.Adapter<H2hAdapter.H2hViewHolder>() {
     class H2hViewHolder(var view : ItemH2hBinding):RecyclerView.ViewHolder(view.root) {

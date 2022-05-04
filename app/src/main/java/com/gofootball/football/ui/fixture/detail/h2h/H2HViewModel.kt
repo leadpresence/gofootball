@@ -3,8 +3,6 @@ package com.gofootball.football.ui.fixture.detail.h2h
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.gofootball.football.data.remote.ApiClient
-import com.gofootball.football.model.h2h.Fixture
-import com.gofootball.football.model.h2h.H2HResponse
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver

@@ -28,24 +28,7 @@ class FixtureViewModel (private val activity: Activity, application: Application
         getAllMatchFixture()
     }
 
-    fun getAllFixtureOfLeague(leagueId: Int) {
-        loadingFixture.value = true
-        disposable.add(apiClient.getAllFixtureOfLeague(leagueId)
-            .subscribeOn(Schedulers.newThread())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeWith(object : DisposableSingleObserver<FixtureResponse>() {
-                override fun onSuccess(t: FixtureResponse) {
-                    fixtureList.value = t.api.fixtures
-                    loadingFixture.value = false
-                }
 
-                override fun onError(e: Throwable) {
-
-                }
-
-            })
-        )
-    }
 
     fun getAllMatchFixture() {
         loadingFixture.value = true

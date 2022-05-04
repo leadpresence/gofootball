@@ -22,8 +22,6 @@ import com.gofootball.football.util.CustomSharedPreferences
 import kotlinx.android.synthetic.main.fragment_fixture.*
 
 
-
-
 class FixtureFragment : BaseVMFragment<FixtureViewModel>() {
 
     override fun onCreateView(

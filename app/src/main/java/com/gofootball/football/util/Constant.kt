@@ -1,7 +1,6 @@
 package com.gofootball.football.util
 
 object Constant {
-    const val BASE_URL = "https://api-football-v1.p.rapidapi.com/v2/"
     const val   GO_FOOTBALL_BASE_URL ="https://api.football-data.org/v2/"
     const val  GO_FOOTBALL_APP_KEY ="X-Auth-Token: 0018080f230a448188df0a227b4c50f4"
     const val GET_MATCHES = "matches/"

@@ -14,68 +14,97 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.gofootball.football.R
+import com.gofootball.football.base.BaseVMFragment
 import com.gofootball.football.databinding.FragmentFixtureBinding
+import com.gofootball.football.model.Match
 import com.gofootball.football.ui.MainViewModelFactory
 import com.gofootball.football.util.CustomSharedPreferences
 import kotlinx.android.synthetic.main.fragment_fixture.*
 
 
-class FixtureFragment :  Fragment() {
-    private lateinit var binding: FragmentFixtureBinding
-    private lateinit var viewModel: FixtureViewModel
-    private lateinit var navController: NavController
+//class FixtureFragment :  Fragment() {
+//    private lateinit var binding: FragmentFixtureBinding
+//    private lateinit var fixtureViewModel: FixtureViewModel
+//    private lateinit var navController: NavController
+//
+//
+//    override fun onCreateView(
+//        inflater: LayoutInflater, container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//        // Inflate the layout for this fragment
+//        binding =
+//            DataBindingUtil.inflate(layoutInflater, R.layout.fragment_fixture, container, false)
+//        val viewModelFactory =
+//            MainViewModelFactory(requireActivity(), requireActivity().application)
+//
+//        fixtureViewModel =
+//            ViewModelProvider(requireActivity(), viewModelFactory).get(FixtureViewModel::class.java)
+//
+//        var customPreferences = CustomSharedPreferences(activity?.applicationContext!!)
+//        val leagueId = customPreferences.getCountryId()
+//
+//        fixtureViewModel.getAllMatchFixture()
+//
+//
+//
+////            binding.viewModel = viewModel
+//        binding.lifecycleOwner = requireActivity()
+//
+//        fixtureViewModel.loadingFixture.value=true
+//        fixtureViewModel.matchesList.observe(requireActivity(),{})
+//        return binding.root
+//
+//
+//    }
+//
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//    }
+//
+//}
 
 
-        override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?,
-                               savedInstanceState: Bundle?):View {
-            // Inflate the layout for this fragment
-            binding = DataBindingUtil.inflate(
-                layoutInflater,
-                R.layout.fragment_fixture,
-                container,
-                false
-            )
-            val viewModelFactory =
-                MainViewModelFactory(requireActivity(), requireActivity().application)
-            viewModel =
-                ViewModelProvider(requireActivity(), viewModelFactory).get(FixtureViewModel::class.java)
-            viewModel = ViewModelProvider(
-                requireActivity(),
-                viewModelFactory
-            ).get(FixtureViewModel::class.java)
+class FixtureFragment : BaseVMFragment<FixtureViewModel>() {
 
-
-            var customPreferences = CustomSharedPreferences(activity?.applicationContext!!)
-            val leagueId = customPreferences.getCountryId()
-
-            viewModel.getAllMatchFixture()
-
-            viewModel.matchesList.observe(viewLifecycleOwner, Observer {
-                it?.let {
-                    rvFixture.layoutManager = LinearLayoutManager(context)
-                    rvFixture.adapter = MatchAdapter(it  ,
-                        MatchAdapter.MatchClickListener { match ->
-                            run {}
-                        })
-                }
-            })
-
-            viewModel.loadingFixture.observe(viewLifecycleOwner, Observer {
-                it?.let {
-                    if (it){
-                        rvFixture.visibility = View.GONE
-                        progressFixture.visibility = View.VISIBLE
-                    }else{
-                        rvFixture.visibility = View.VISIBLE
-                        progressFixture.visibility = View.GONE
-                    }
-                }
-            })
-
-//            binding.viewModel = viewModel
-            binding.lifecycleOwner = requireActivity()
-            return binding.root
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_fixture, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        var customPreferences = CustomSharedPreferences(activity?.applicationContext!!)
+        val leagueId = customPreferences.getCountryId()
+
+
+        viewModel.getAllMatchFixture()
+
+        viewModel.matchesList.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                rvFixture.layoutManager = LinearLayoutManager(context)
+                rvFixture.adapter = MatchAdapter(it,
+                    MatchAdapter.MatchClickListener { match ->
+                        {}
+                    })
+            }
+        })
+
+        viewModel.loadingFixture.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                if (it) {
+                    rvFixture.visibility = View.GONE
+                    progressFixture.visibility = View.VISIBLE
+                } else {
+                    rvFixture.visibility = View.VISIBLE
+                    progressFixture.visibility = View.GONE
+                }
+            }
+        })
+    }
+    override fun getViewModel(): Class<FixtureViewModel> = FixtureViewModel::class.java
 
 }

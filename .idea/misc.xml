@@ -6,7 +6,7 @@
         <entry key="app/src/main/res/drawable/bottom_navigation_color_selector.xml" value="0.153125" />
         <entry key="app/src/main/res/drawable/ic_ball.xml" value="0.15260416666666668" />
         <entry key="app/src/main/res/drawable/ic_soccer.xml" value="0.2833333333333333" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1453125" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_competition.xml" value="0.12291666666666666" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/item_fixture.xml" value="0.1" />

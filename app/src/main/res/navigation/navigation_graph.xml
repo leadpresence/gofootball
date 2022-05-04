@@ -11,9 +11,6 @@
         android:name="com.gofootball.football.ui.fixture.FixtureFragment"
         android:label="fragment_fixture"
         tools:layout="@layout/fragment_fixture" >
-<!--        <action-->
-<!--            android:id="@+id/action_fixtureFragment_to_fixtureDetailFragment"-->
-<!--            app:destination="@id/fixtureDetailFragment" />-->
     </fragment>
 
 </navigation>

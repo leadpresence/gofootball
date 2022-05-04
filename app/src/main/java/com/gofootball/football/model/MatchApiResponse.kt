@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
  data class MatchApiResponse(
     @SerializedName("count")
-    var count: Int,
+    var count: Int=0,
     @SerializedName("filters")
     var filters: Filters,
     @SerializedName("matches")
@@ -13,144 +13,143 @@ import com.google.gson.annotations.SerializedName
 
 data class Filters(
     @SerializedName("dateFrom")
-    var dateFrom: String,
+    var dateFrom: String="",
     @SerializedName("dateTo")
-    var dateTo: String,
+    var dateTo: String="",
     @SerializedName("permission")
-    var permission: String
+    var permission: String=""
 )
 
 data class Match(
     @SerializedName("awayTeam")
-    var awayTeam: AwayTeam,
+    var awayTeam: AwayTeam=AwayTeam(),
     @SerializedName("competition")
-    var competition: Competition,
+    var competition: Competition=Competition(),
     @SerializedName("group")
-    var group: Any?,
+    var group: Any?=Any(),
     @SerializedName("homeTeam")
     var homeTeam: HomeTeam,
     @SerializedName("id")
-    var id: Int,
+    var id: Int=0,
     @SerializedName("lastUpdated")
-    var lastUpdated: String,
+    var lastUpdated: String="",
     @SerializedName("matchday")
-    var matchday: Int?,
+    var matchday: Int?=0,
     @SerializedName("odds")
-    var odds: Odds,
+    var odds: Odds=Odds(),
     @SerializedName("referees")
-    var referees: List<Referee>,
+    var referees: List<Referee>  = ArrayList(),
     @SerializedName("score")
-    var score: Score,
+    var score: Score=Score(),
     @SerializedName("season")
-    var season: Season,
+    var season: Season= Season(),
     @SerializedName("stage")
-    var stage: String,
+    var stage: String="",
     @SerializedName("status")
-    var status: String,
+    var status: String="",
     @SerializedName("utcDate")
-    var utcDate: String
+    var utcDate: String=""
 )
 
 data class AwayTeam(
     @SerializedName("id")
-    var id: Int,
+    var id: Int=0,
     @SerializedName("name")
-    var name: String
+    var name: String=""
 )
 
 data class Competition(
     @SerializedName("area")
-    var area: Area,
+    var area: Area=Area(),
     @SerializedName("id")
-    var id: Int,
+    var id: Int=0,
     @SerializedName("name")
-    var name: String
+    var name: String=""
 )
 
 data class HomeTeam(
     @SerializedName("id")
-    var id: Int,
+    var id: Int=0,
     @SerializedName("name")
-    var name: String
+    var name: String=""
 )
 
 data class Odds(
     @SerializedName("msg")
-    var msg: String
+    var msg: String=""
 )
 
 data class Referee(
     @SerializedName("id")
-    var id: Int,
+    var id: Int=0,
     @SerializedName("name")
-    var name: String,
+    var name: String="",
     @SerializedName("nationality")
-    var nationality: String,
+    var nationality: String="",
     @SerializedName("role")
-    var role: String
+    var role: String=""
 )
 
 data class Score(
     @SerializedName("duration")
-    var duration: String,
+    var duration: String="",
     @SerializedName("extraTime")
-    var extraTime: ExtraTime,
+    var extraTime: ExtraTime=ExtraTime(),
     @SerializedName("fullTime")
-    var fullTime: FullTime,
+    var fullTime: FullTime=FullTime(),
     @SerializedName("halfTime")
-    var halfTime: HalfTime,
+    var halfTime: HalfTime=HalfTime(),
     @SerializedName("penalties")
-    var penalties: Penalties,
+    var penalties: Penalties=Penalties(),
     @SerializedName("winner")
-    var winner: Any?
+    var winner: Any?=Any()
 )
 
 data class Season(
     @SerializedName("currentMatchday")
-    var currentMatchday: Int,
+    var currentMatchday: Int=0,
     @SerializedName("endDate")
-    var endDate: String,
+    var endDate: String="",
     @SerializedName("id")
-    var id: Int,
+    var id: Int=0,
     @SerializedName("startDate")
-    var startDate: String,
+    var startDate: String="",
     @SerializedName("winner")
-    var winner: Any?
+    var winner: Any?=Any()
 )
 
 data class Area(
     @SerializedName("code")
-    var code: String,
+    var code: String="",
     @SerializedName("ensignUrl")
-    var ensignUrl: String?,
+    var ensignUrl: String="",
     @SerializedName("name")
-    var name: String
+    var name: String=""
 )
 
 data class ExtraTime(
     @SerializedName("awayTeam")
-    var awayTeam:  Int? = 0,
+    var awayTeam:  Int?=0,
     @SerializedName("homeTeam")
-    var homeTeam: Int? = 0
+    var homeTeam: Int?=0 ,
 )
 
 data class FullTime(
     @SerializedName("awayTeam")
-    var awayTeam:  Int? = 0,
+    var awayTeam:  Int?=0,
     @SerializedName("homeTeam")
-    var homeTeam: Int? = 0
+    var homeTeam: Int?=0
 )
 
 data class HalfTime(
     @SerializedName("awayTeam")
-    var awayTeam:  Int? = 0,
+    var awayTeam:  Int?=0 ,
     @SerializedName("homeTeam")
-    var homeTeam: Int? = 0
-)
+    var homeTeam: Int?=0)
 
 data class Penalties(
     @SerializedName("awayTeam")
-    var awayTeam: Any?,
+    var awayTeam: Any?=Any(),
     @SerializedName("homeTeam")
-    var homeTeam: Any?
+    var homeTeam: Any?=Any()
 )

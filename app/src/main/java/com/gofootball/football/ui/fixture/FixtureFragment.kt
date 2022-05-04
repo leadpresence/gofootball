@@ -52,7 +52,6 @@ class FixtureFragment :  Fragment() {
             var customPreferences = CustomSharedPreferences(activity?.applicationContext!!)
             val leagueId = customPreferences.getCountryId()
 
-            viewModel.getAllFixtureOfLeague(leagueId!!)
             viewModel.getAllMatchFixture()
 
 

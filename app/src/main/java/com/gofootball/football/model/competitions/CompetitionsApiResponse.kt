@@ -6,54 +6,54 @@ data class CompetitionsApiResponse(
     @SerializedName("competitions")
     var competitions: List<Competition>,
     @SerializedName("count")
-    var count: Int,
+    var count: Int=0,
     @SerializedName("filters")
     var filters: Filters
 )
 
 data class Competition(
     @SerializedName("area")
-    var area: Area,
+    var area: Area= Area(),
     @SerializedName("code")
-    var code: String?,
+    var code: String?="",
     @SerializedName("currentSeason")
-    var currentSeason: CurrentSeason,
+    var currentSeason: CurrentSeason=CurrentSeason(),
     @SerializedName("emblemUrl")
-    var emblemUrl: Any?,
+    var emblemUrl: Any?=Any(),
     @SerializedName("id")
-    var id: Int,
+    var id: Int=0,
     @SerializedName("lastUpdated")
-    var lastUpdated: String,
+    var lastUpdated: String="",
     @SerializedName("name")
-    var name: String,
+    var name: String="",
     @SerializedName("numberOfAvailableSeasons")
-    var numberOfAvailableSeasons: Int,
+    var numberOfAvailableSeasons: Int=0,
     @SerializedName("plan")
-    var plan: String
+    var plan: String=""
 )
 
 class Filters
 
 data class Area(
     @SerializedName("countryCode")
-    var countryCode: String,
+    var countryCode: String="",
     @SerializedName("ensignUrl")
-    var ensignUrl: Any?,
+    var ensignUrl: Any?=Any(),
     @SerializedName("id")
-    var id: Int,
+    var id: Int=0,
     @SerializedName("name")
-    var name: String
+    var name: String=""
 )
 
 data class CurrentSeason(
     @SerializedName("currentMatchday")
-    var currentMatchday: Int?,
+    var currentMatchday: Int?=0,
     @SerializedName("endDate")
-    var endDate: String,
+    var endDate: String="",
     @SerializedName("id")
-    var id: Int,
+    var id: Int=0,
     @SerializedName("startDate")
-    var startDate: String,
+    var startDate: String="",
     @SerializedName("winner")
-    var winner: Any?
+    var winner: Any?=Any()
 )
